@@ -45,9 +45,11 @@ These two references provided inspiration not only for rhythm and spatial compos
 ![Figure 1](ReadmeImages/Figure1.jpg)
 
 **Figure 1**
+ [Source](https://www.pinterest.com/pin/1001839879614861818/)
 
 ![Figure 2](ReadmeImages/Figure2.jpg)
 
 **Figure 2**
+ [Source](https://www.pinterest.com/pin/1001839879614863309/)
 
 
