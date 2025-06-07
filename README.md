@@ -20,7 +20,7 @@ The overall dynamics of the work are similar to a "breathing" effect: when the m
 
 ### Choice
 
-I chose to use `Perlin noise` and `randomness` as the main drivers of my individual animation logic.
+I chose to use **Perlin noise and randomness** as the main drivers of my individual animation logic.
 
 ### Features of My Code
 
