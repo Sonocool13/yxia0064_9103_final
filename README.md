@@ -42,7 +42,7 @@ My work is mainly inspired by the following two visual references:
 
 These two references provided inspiration not only for rhythm and spatial composition but also helped clarify how to balance "order and randomness" in animation to produce visuals that feel both dynamic and harmonious.
 
-![Figure 1](ReadmeImages/figure1.jpg)
-![Figure 2](ReadmeImages/figure2.jpg)
+![Figure 1](ReadmeImages/Figure1.jpg)
+![Figure 2](ReadmeImages/Figure2.jpg)
 
 
