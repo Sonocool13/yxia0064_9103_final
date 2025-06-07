@@ -45,11 +45,60 @@ These two references provided inspiration not only for rhythm and spatial compos
 ![Figure 1](ReadmeImages/Figure1.jpg)
 
 **Figure 1**
+
  [Source](https://www.pinterest.com/pin/1001839879614861818/)
 
 ![Figure 2](ReadmeImages/Figure2.jpg)
 
 **Figure 2**
+
  [Source](https://www.pinterest.com/pin/1001839879614863309/)
 
+ ## Technical Explanation
+
+### Playback Control via Button
+
+```
+function setup() {
+	if (!button) {
+		button = createButton("PAUSE");
+		button.style('width', '100px');
+		button.style('height', '40px');
+		button.position((width - button.width) / 2, height * 0.9);
+		button.style("font-size", "16px");
+		button.style("padding", "6px 12px");
+		button.style("background-color", "#666");
+		button.style("color", "#fff");
+		button.mousePressed(togglePause);
+	}
+
+}
+
+function draw(){
+  	if (ifPaused) {
+		background(0)
+		fill(255);
+		textSize(32);
+		textAlign(CENTER, CENTER);
+		text("Animation Paused", 0, 0);
+
+	}
+}
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+	draw();
+	button.position((width - button.width) / 2, height * 0.9);
+}
+function ifPause() {
+	isPaused = !isPaused;
+	if (isPaused) {
+		button.html("PLAY");
+		button.style("background-color", "red");
+	} else {
+		button.html("PAUSE");
+		button.style("background-color", "#666");
+	}
+}
+
+```
 
