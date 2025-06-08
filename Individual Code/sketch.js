@@ -47,7 +47,7 @@ function draw() {
 	let totalR = scale;
 
 	// Draw all the concentric circles
-	coreElements = new createMutipleCircle(0, 0, totalR);
+	coreElements = new createMultipleCircle(0, 0, totalR);
 
 	coreElements.drawLine();
 	coreElements.diverPoint();

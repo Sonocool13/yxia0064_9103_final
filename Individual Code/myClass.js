@@ -1,5 +1,5 @@
 // Control all concentric circles with the same center and size.
-class createMutipleCircle {
+class createMultipleCircle {
   constructor(centerX, centerY, centerSize) {
     this.x = centerX;
     this.y = centerY;
@@ -68,9 +68,9 @@ class createMutipleCircle {
 
   // Draw different triangles
   drawTriangle(d) {
-    let drawTriangleApha = map(noise(frameCount / 50), 0, 1, 20, 80);
+    let drawTriangleAlpha = map(noise(frameCount / 50), 0, 1, 20, 80);
     noFill();
-    stroke(28, 53, 93, drawTriangleApha);
+    stroke(28, 53, 93, drawTriangleAlpha);
     strokeWeight(this.size / 80);
     let sr = (this.size * 1.15) * 2;
 
@@ -92,7 +92,7 @@ class createMutipleCircle {
 
   // Lines radiating from a circle
   drawLine() {
-    let drawLineDegree = map(noise(mouseX / 10000), 0, 1, 50, 5);
+    let drawLineDegree = map(noise(mouseX / 1000), 0, 1, 15, 60);
     for (let j = 0; j < 10; j++) {
       for (let i = 0; i < 30; i++) {
         push();
@@ -117,7 +117,7 @@ class createMutipleCircle {
   diverPoint() {
     for (let j = 0; j < 360; j += 0.2) {
       for (let i = 0; i < 3; i++) {
-        let c = map(i, 0, 2, 50, 35);
+        let diverPointSize = map(i, 0, 2, 50, 35);
         let pointAlpha = map(i, 0, 2, 0, 30);
         push();
         noStroke();
@@ -131,7 +131,7 @@ class createMutipleCircle {
         let x1 = cos(j * 3) * diverpointR / 1.3 * (4 - i / 10) * posNoise + this.x;
         let y1 = sin(j * 3) * diverpointR / 1.3 * (4 - i / 10) * posNoise + this.y;
 
-        circle(x1, y1, diverpointR / c * 2);
+        circle(x1, y1, diverpointR / diverPointSize * 2);
         pop();
       }
     }

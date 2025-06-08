@@ -243,7 +243,7 @@ class createMultipleCircle {
     this.size = centerSize;
   }
    drawLine() {
-    let drawLineDegree = map(noise(mouseX / 10000), 0, 1, 60, 15);
+    let drawLineDegree = map(noise(mouseX / 1000), 0, 1, 60, 15);
     for (let j = 0; j < 10; j++) {
       for (let i = 0; i < 30; i++) {
         push();
