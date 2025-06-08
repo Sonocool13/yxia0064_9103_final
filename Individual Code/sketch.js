@@ -17,15 +17,17 @@ function setup() {
 		starPoints.push(createVector(random(width), random(height), random(0, width / 300)));
 	}
 	// create button
-	button = createButton("PAUSE");
-	button.style('width', '100px');
-	button.style('height', '40px');
-	button.position((width - button.width) / 2, height * 0.9);
-	button.style("font-size", "16px");
-	button.style("padding", "6px 12px");
-	button.style("background-color", "#666");
-	button.style("color", "#fff");
-	button.mousePressed(ifPaused);
+	if (!button) {
+		button = createButton("PAUSE");
+		button.style('width', '100px');
+		button.style('height', '40px');
+		button.position((width - button.width) / 2, height * 0.9);
+		button.style("font-size", "16px");
+		button.style("padding", "6px 12px");
+		button.style("background-color", "#666");
+		button.style("color", "#fff");
+		button.mousePressed(ifPaused);
+	}
 }
 
 function draw() {
@@ -62,6 +64,7 @@ function draw() {
 
 	push();
 	rotate(frameCount);
+	//The number of triangles is related to mouseY.
 	for (let i = 0; i < mouseY / 100; i++) {
 		coreElements.drawTriangle(i * 36);
 	}
@@ -69,7 +72,7 @@ function draw() {
 	pop();
 
 	if (isPaused) {
-		background(0)
+		background(0);
 		fill(255);
 		textSize(32);
 		textAlign(CENTER, CENTER);
@@ -82,7 +85,7 @@ function draw() {
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
 	button.position((width - button.width) / 2, height * 0.9);
-	setup();
+	draw()
 }
 function ifPaused() {
 	isPaused = !isPaused;
