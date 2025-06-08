@@ -70,7 +70,7 @@ function draw() {
 	}
 	pop();
 	pop();
-
+	//Determine the state of the button
 	if (isPaused) {
 		background(0);
 		fill(255);
@@ -87,6 +87,7 @@ function windowResized() {
 	button.position((width - button.width) / 2, height * 0.9);
 	draw()
 }
+//Changing button states and styles
 function ifPaused() {
 	isPaused = !isPaused;
 	if (isPaused) {
