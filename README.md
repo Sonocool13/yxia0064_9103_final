@@ -1,6 +1,6 @@
 # Individual Code Description
 
-## How To Interact
+## How to Interact
 
 The overall dynamics of the work are similar to a "breathing" effect: when the mouse is still, the animation moves slowly; when the mouse moves quickly, the animation changes more violently. The specific interactive effects are as follows:
 
@@ -48,7 +48,6 @@ These two references provided inspiration not only for rhythm and spatial compos
 ![Figure 2 – Radial Structure](ReadmeImages/Figure2.jpg)  
 **Figure 2:** Radial Composition ([Source](https://www.pinterest.com/pin/1001839879614863309/))
 
-11111
  ## Technical Explanation
 
 ### Animation Playback Control via Button
@@ -122,7 +121,7 @@ function draw() {
 	let totalR = scale;
 
 	// Draw all the concentric circles
-	coreElements = new createMutipleCircle(0, 0, totalR);
+	coreElements = new createMultipleCircle(0, 0, totalR);
 }
 ```
 ### Number of Circumscribed Triangles (`mouseY`)
@@ -132,7 +131,7 @@ The circumscribed triangle is implemented by the `drawTriangle(d)` function insi
 ```
 function draw(){
   // Draw all the concentric circles
-	coreElements = new createMutipleCircle(0, 0, totalR);
+	coreElements = new createMultipleCircle(0, 0, totalR);
 	push();
 	rotate(frameCount);
 	//The number of triangles is determined by mouseY
@@ -143,7 +142,7 @@ function draw(){
 
 }
 
-class createMutipleCircle {
+class createMultipleCircle {
   constructor(centerX, centerY, centerSize) {
     this.x = centerX;
     this.y = centerY;
@@ -151,9 +150,9 @@ class createMutipleCircle {
   }
   // Draw different triangles
   drawTriangle(d) {
-    let drawTriangleApha = map(noise(frameCount / 50), 0, 1, 20, 80);
+    let drawTriangleAlpha = map(noise(frameCount / 50), 0, 1, 20, 80);
     noFill();
-    stroke(28, 53, 93, drawTriangleApha);
+    stroke(28, 53, 93, drawTriangleAlpha);
     strokeWeight(this.size / 80);
     let sr = (this.size * 1.15) * 2;
 
@@ -176,7 +175,7 @@ class createMutipleCircle {
 ```
 ### Outer Circle Divergent Points (`mouseX`)
 
-In the `createMutipleCircle` class, the `diverPoint()` method is used to draw a dot matrix structure that is arranged in a divergent manner around the center point. The position of each point is determined by the angle and the `noise()` function, allowing the dot matrix to form a regular and continuously changing dynamic pattern.
+In the `createMultipleCircle` class, the `diverPoint()` method is used to draw a dot matrix structure that is arranged in a divergent manner around the center point. The position of each point is determined by the angle and the `noise()` function, allowing the dot matrix to form a regular and continuously changing dynamic pattern.
 
 In the code, `mouseX` is used as one of the inputs to the `noise()` function, enabling horizontal mouse movement to control the degree of diffusion of the divergent points. The larger the `mouseX`, the stronger the noise fluctuation and the more dispersed the points become; conversely, the points appear more concentrated. This interaction changes the overall dynamic form of the visual pattern.
 
@@ -184,10 +183,10 @@ Additionally, the transparency and size of each point are calculated using the `
 
 ```
 function draw() {
-	coreElements = new createMutipleCircle(0, 0, totalR);
+	coreElements = new createMultipleCircle(0, 0, totalR);
 	coreElements.diverPoint();
 }
-class createMutipleCircle {
+class createMultipleCircle {
   constructor(centerX, centerY, centerSize) {
     this.x = centerX;
     this.y = centerY;
@@ -234,17 +233,17 @@ In addition, by using the `mouseX` parameter in the `noise()` function to influe
 
 ```
 function draw() {
-	coreElements = new createMutipleCircle(0, 0, totalR);
+	coreElements = new createMultipleCircle(0, 0, totalR);
 	coreElements.drawLine();
 }
-class createMutipleCircle {
+class createMultipleCircle {
   constructor(centerX, centerY, centerSize) {
     this.x = centerX;
     this.y = centerY;
     this.size = centerSize;
   }
    drawLine() {
-    let drawLineDegree = map(noise(mouseX / 10000), 0, 1, 50, 5);
+    let drawLineDegree = map(noise(mouseX / 10000), 0, 1, 60, 15);
     for (let j = 0; j < 10; j++) {
       for (let i = 0; i < 30; i++) {
         push();
@@ -268,7 +267,7 @@ class createMutipleCircle {
 ```
 ### Density of Central Random Points (`mouseX`)
 
-The `randomPoint()` method in the `createMutipleCircle` class is used to generate a set of constantly changing scattered points around the center. The position, size, and transparency of each point are controlled by the `noise()` and `map()` functions, so that the dot matrix presents a dynamic motion effect while maintaining a certain regularity.
+The `randomPoint()` method in the `createMultipleCircle` class is used to generate a set of constantly changing scattered points around the center. The position, size, and transparency of each point are controlled by the `noise()` and `map()` functions, so that the dot matrix presents a dynamic motion effect while maintaining a certain regularity.
 
 - `randomPointAlpha` controls the overall transparency of all points, and its value changes with time (`frameCount`).
 - `randomPointR` is the radius of each point, controlled by `mouseX` and `noise()`, so the distribution of points changes with horizontal mouse movement.
@@ -278,11 +277,11 @@ The `randomPoint()` method in the `createMutipleCircle` class is used to generat
 
 ```
 function draw() {
-coreElements = new createMutipleCircle(0, 0, totalR);
+coreElements = new createMultipleCircle(0, 0, totalR);
 	coreElements.randomPoint();
 }
 
-class createMutipleCircle {
+class createMultipleCircle {
   constructor(centerX, centerY, centerSize) {
     this.x = centerX;
     this.y = centerY;
