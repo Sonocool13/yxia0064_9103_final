@@ -177,34 +177,143 @@ class createMutipleCircle {
   }
 }
 ```
-### Playback Control via Button
+### Outer Circle Divergent Points (`mouseX`)
+
+In the `createMutipleCircle` class, the `diverPoint()` method is used to draw a dot matrix structure that is arranged in a divergent manner around the center point. The position of each point is determined by the angle and the `noise()` function, allowing the dot matrix to form a regular and continuously changing dynamic pattern.
+
+In the code, `mouseX` is used as one of the inputs to the `noise()` function, enabling horizontal mouse movement to control the degree of diffusion of the divergent points. The larger the `mouseX`, the stronger the noise fluctuation and the more dispersed the points become; conversely, the points appear more concentrated. This interaction changes the overall dynamic form of the visual pattern.
+
+Additionally, the transparency and size of each point are calculated using the `map()` function, which further enhances the layering and visual expressiveness of the animation.
 
 ```
-function setup() {
-  
-}
 function draw() {
+	coreElements = new createMutipleCircle(0, 0, totalR);
+	coreElements.diverPoint();
+}
+class createMutipleCircle {
+  constructor(centerX, centerY, centerSize) {
+    this.x = centerX;
+    this.y = centerY;
+    this.size = centerSize;
+  }
 
+  // The ordered points of the outermost circle
+  diverPoint() {
+    for (let j = 0; j < 360; j += 0.2) {
+      for (let i = 0; i < 3; i++) {
+        let sizeFactor = map(i, 0, 2, 50, 35);
+        let pointAlpha = map(i, 0, 2, 0, 30);
+        push();
+        noStroke();
+        fill(34, 62, 90, pointAlpha);
+
+        let diverPointBaseR = this.size / 2.2;
+        let diverPointnoise = map(noise(j / 50, i / 10, frameCount / 12000), 0, 1, 0.9, 1.1);
+        let diverpointR = diverPointBaseR * diverPointnoise;
+
+        let posNoise = map(noise(i / 10, j / 10 * mouseX / 500, frameCount / 10), 0, 1, 0.95, 1.35);
+        let x1 = cos(j * 3) * diverpointR / 1.3 * (4 - i / 10) * posNoise + this.x;
+        let y1 = sin(j * 3) * diverpointR / 1.3 * (4 - i / 10) * posNoise + this.y;
+
+        circle(x1, y1, diverpointR / sizeFactor * 2);
+        pop();
+      }
+    }
+  }
 }
 ```
-### Playback Control via Button
+### Diverging Line Angles (`mouseX`)
+
+This code uses the `drawLine()` method in the `createMutipleCircle` class to draw a group of lines radiating from the center. The angle, length, transparency, and thickness of each line are controlled by the `map()` function and the `noise()` function, creating a layered and dynamically changing radial line effect.
+
+In the calculation of each line:
+
+- `lengthFactor` controls the length of the line.  
+- `drawLineAlpha` controls the transparency — the longer the line, the higher the transparency.  
+- `drawLineThick` controls the thickness — the longer the line, the thicker it is.  
+- `noiseX` and `noiseY` introduce subtle jitter through the `noise()` function, making the end points of the line (`drawLineX`, `drawLineY`) change dynamically.
+
+In addition, by using the `mouseX` parameter in the `noise()` function to influence the overall angle, the work gains a stronger sense of interactivity.
 
 ```
-function setup() {
-  
-}
 function draw() {
+	coreElements = new createMutipleCircle(0, 0, totalR);
+	coreElements.drawLine();
+}
+class createMutipleCircle {
+  constructor(centerX, centerY, centerSize) {
+    this.x = centerX;
+    this.y = centerY;
+    this.size = centerSize;
+  }
+   drawLine() {
+    let drawLineDegree = map(noise(mouseX / 10000), 0, 1, 50, 5);
+    for (let j = 0; j < 10; j++) {
+      for (let i = 0; i < 30; i++) {
+        push();
+        let lengthFactor = map(i, 0, 30, 0.3, 1.3);
+        let drawLineAlpha = map(i, 0, 30, 20, 100);
+        let drawLineThick = map(i, 0, 30, 0.5, 2.5);
+        stroke(166, 36, 81, drawLineAlpha);
+        strokeWeight(drawLineThick);
 
+        let noiseX = noise(i / 150, (frameCount / 40 + j));
+        let noiseY = noise(i / 150, (frameCount / 40 + j));
+        let drawLineX = cos(drawLineDegree * j - 67.5 - i * 2) * this.size * noiseX * 4 * lengthFactor + this.x;
+        let drawLineY = sin(drawLineDegree * j - 67.5 - i * 2) * this.size * noiseY * 4 * lengthFactor + this.y;
+
+        line(this.x, this.y, drawLineX, drawLineY);
+        pop();
+      }
+    }
+  }
 }
 ```
-### Playback Control via Button
+### Density of Central Random Points (`mouseX`)
+
+The `randomPoint()` method in the `createMutipleCircle` class is used to generate a set of constantly changing scattered points around the center. The position, size, and transparency of each point are controlled by the `noise()` and `map()` functions, so that the dot matrix presents a dynamic motion effect while maintaining a certain regularity.
+
+- `randomPointAlpha` controls the overall transparency of all points, and its value changes with time (`frameCount`).
+- `randomPointR` is the radius of each point, controlled by `mouseX` and `noise()`, so the distribution of points changes with horizontal mouse movement.
+- `randomPointAngle` is controlled by `noise()`, so that each point's position on the circle keeps shifting to create a flow effect.
+- The position is calculated using `cos()` and `sin()`.
+- The point size `randomPointSize` is also generated using `noise()` and `map()` to enhance layering and visual variation.
 
 ```
-function setup() {
-  
-}
 function draw() {
+coreElements = new createMutipleCircle(0, 0, totalR);
+	coreElements.randomPoint();
+}
 
+class createMutipleCircle {
+  constructor(centerX, centerY, centerSize) {
+    this.x = centerX;
+    this.y = centerY;
+    this.size = centerSize;
+  }
+    randomPoint() {
+    push();
+    let randomPointAlpha = map(noise(frameCount * 0.005), 0, 1, 20, 80);
+    fill(178, 30, 80, randomPointAlpha);
+    for (let j = 1; j < 35; j++) {
+      for (let i = 0; i < 360; i += j / 4) {
+        let dianR = map(j, 1, 100, this.size * 2.34 / 2, this.size / 2);
+        let rNoise = noise(mouseX * 100 + j * 0.01, i / 50);
+        let randomPointR = rNoise * this.size * 2.34 / 2 - dianR;
+
+        let angleNoise = noise(frameCount / 1000 + j * 0.01, j / 100, i / 100);
+        let randomPointAngle = angleNoise * i * 180 - j;
+
+        let randomPointX = cos(randomPointAngle) * randomPointR + this.x;
+        let randomPointY = sin(randomPointAngle) * randomPointR + this.y;
+
+        noStroke();
+        let randomPointSize = map(noise(i * 0.05, j * 0.05, frameCount * 0.05), 0, 1, this.size / 100, this.size / 40);
+        circle(randomPointX, randomPointY, randomPointSize);
+      }
+    }
+    pop();
+  }
 }
 ```
 
