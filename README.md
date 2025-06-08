@@ -1,4 +1,4 @@
-# Individual code description
+# Individual Code Description
 
 ## How To Interact
 
@@ -26,7 +26,7 @@ I chose to use **Perlin noise and randomness** as the main drivers of my individ
 
 I developed the overall design around a **"breathing" sensation**. The main visual elements expand and contract slowly, mimicking a calm breathing rhythm. Meanwhile, I applied rhythmic motion to both the random points in the center and the divergent points on the outer circle, resulting in a visual that feels soft and organic.
 
-Additionally, I introduced length variations to the background divergent lines, allowing them to change gradually within a specific range to enhance subtle visual dynamism. I also added a **rotating circumscribed triangle at the center. Through a combination of consistent rotation and slight irregular jittering, the composition gains a richer sense of depth and motion.
+Additionally, I introduced length variations to the background divergent lines, allowing them to change gradually within a specific range to enhance subtle visual dynamism. I also added a rotating circumscribed triangle at the center, and through a combination of consistent rotation and slight irregular jittering, the composition gains a richer sense of depth and motion.
 
 To further enhance interactivity, I linked these animation parameters to `mouseX` and `mouseY`. The real-time mouse movement directly influences the degree of animation change, enabling the entire canvas to react smoothly and provide stronger visual feedback during interaction.
 
