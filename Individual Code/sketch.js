@@ -17,6 +17,7 @@ function setup() {
 		starPoints.push(createVector(random(width), random(height), random(0, width / 300)));
 	}
 	// create button
+	//Refer to the p5js website: https://p5js.org/reference/p5.Element/style/
 	if (!button) {
 		button = createButton("PAUSE");
 		button.style('width', '100px');
@@ -81,7 +82,7 @@ function draw() {
 	}
 }
 
-// As the canvas size changes
+// When the canvas size changes, the relative position of the image does not change
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
 	button.position((width - button.width) / 2, height * 0.9);

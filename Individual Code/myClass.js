@@ -10,6 +10,7 @@ class createMultipleCircle {
   drawMoon() {
     noStroke();
     for (let j = 0; j < 3; j++) {
+      //Determine the odd and even numbers and fill them with different colors
       if (j % 2 == 0) {
         fill(178, 46, 79);
       } else {
