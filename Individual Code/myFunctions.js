@@ -61,7 +61,7 @@ function drawStar(starX, starY, starSize, changeD) {
     } else {
       fill(42, 47, 99);
     }
-
+    //Adjust the first and fourth stars to have longer points to enhance their visual prominence.
     beginShape();
     for (let i = 0; i <= 8; i++) {
       let a;

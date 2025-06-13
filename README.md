@@ -36,17 +36,17 @@ Finally, considering the group's original black-and-white color palette appeared
 
 My work is mainly inspired by the following two visual references:
 
-- **Figure 1:** The rhythmic lines in this image inspired me to build a wave-like line structure by combining multiple circles positioned at different coordinates. This structure conveys a sense of rhythm, as if the entire picture is "breathing". To recreate this feeling, I used the `noise()` function to control the positions of the small circles and applied a `for` loop to generate a layered, animated effect.
+- **Image 1:** The rhythmic lines in this image inspired me to build a wave-like line structure by combining multiple circles positioned at different coordinates. This structure conveys a sense of rhythm, as if the entire picture is "breathing". To recreate this feeling, I used the `noise()` function to control the positions of the small circles and applied a `for` loop to generate a layered, animated effect.
 
-- **Figure 2:** This image presents a radial composition with a strong sense of space and direction. It features a dense arrangement of dot elements at the center and regularly spaced lines radiating outward. I drew from this visual form to structure the divergent lines in my work with more regularity. I also allowed the line lengths to change over time, and added movement to the decorative dots in the center to enhance visual richness.
+- **Image 2:** This image presents a radial composition with a strong sense of space and direction. It features a dense arrangement of dot elements at the center and regularly spaced lines radiating outward. I drew from this visual form to structure the divergent lines in my work with more regularity. I also allowed the line lengths to change over time, and added movement to the decorative dots in the center to enhance visual richness.
 
 These two references provided inspiration not only for rhythm and spatial composition but also helped clarify how to balance "order and randomness" in animation to produce visuals that feel both dynamic and harmonious.
 
-![Figure 1 – Rhythmic Lines](ReadmeImages/Figure1.jpg)  
-**Figure 1:** Rhythmic Lines ([Source](https://www.pinterest.com/pin/1001839879614861818/))
+![Image 1](ReadmeImages/Image1.jpg)  
+**Image 1** ([Source](https://www.pinterest.com/pin/1001839879614861818/))
 
-![Figure 2 – Radial Structure](ReadmeImages/Figure2.jpg)  
-**Figure 2:** Radial Composition ([Source](https://www.pinterest.com/pin/1001839879614863309/))
+![Image 2](ReadmeImages/Image2.jpg)  
+**Image 2** ([Source](https://www.pinterest.com/pin/1001839879614863309/))
 
  ## Technical Explanation
 
